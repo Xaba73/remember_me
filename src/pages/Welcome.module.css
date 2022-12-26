@@ -1,0 +1,19 @@
+h1 {
+  color: azure;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 4.5em;
+  padding-left: 1.5em;
+  padding-top: 0.3em;
+  margin-bottom: 9em;
+}
+
+.link {
+  background-color: rgba(18, 228, 193, 0.5);
+  color: azure;
+  padding: 0.3em 2em;
+  text-decoration: none;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 2em;
+  border-radius: 17px;
+  margin-left: 40%;
+}

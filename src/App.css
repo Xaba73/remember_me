@@ -1,3 +1,4 @@
 body {
-  background-image: url('./components/layout/main-background.jpg');
+  background-image: url("./layout/main-background3.jpg");
+  background-size: 100%;
 }

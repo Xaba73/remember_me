@@ -1,11 +1,14 @@
-import "./App.css";
-import Header from "./components/Header";
+import './App.css';
+import { Routes, Route, Link, Switch } from 'react-router-dom';
+import Words from './pages/Words';
+import Welcome from './pages/Welcome';
 
 function App() {
   return (
-    <>
-      <Header />
-    </>
+    <Routes>
+      <Route path='/' element={<Welcome />} />
+      <Route path='/words' element={<Words />} />
+    </Routes>
   );
 }
 
