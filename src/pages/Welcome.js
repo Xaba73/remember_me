@@ -6,7 +6,7 @@ const Welcome = () => {
     <>
       <h1 className={styles}>Remember ME</h1>
       <Link to='/words' className={styles.link}>
-        Let's start
+        LET'S START <span>&#129042;</span>
       </Link>
     </>
   );

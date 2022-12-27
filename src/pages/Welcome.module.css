@@ -4,16 +4,24 @@ h1 {
   font-size: 4.5em;
   padding-left: 1.5em;
   padding-top: 0.3em;
-  margin-bottom: 9em;
+
 }
 
 .link {
-  background-color: rgba(18, 228, 193, 0.5);
-  color: azure;
-  padding: 0.3em 2em;
+  background-color: rgba(255, 255, 255, 1);
+  color:#0c547f;
+  padding: 0.3em 0.7em 0.3em 0.7em;
   text-decoration: none;
-  font-family: 'Libre Baskerville', serif;
+  font-family: 'Playfair Display', serif;
   font-size: 2em;
-  border-radius: 17px;
-  margin-left: 40%;
+  margin-left: 6%;
+  border-radius: 10px;
+}
+
+.link span {
+  padding-left: 25px;
+}
+.link:hover {
+  font-size: 2.2em;
+  background-color: rgba(255, 255, 255, 0.8);
 }

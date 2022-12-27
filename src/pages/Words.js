@@ -1,12 +1,11 @@
-import NewWord from '../components/NewWord';
+import Word from '../components/Word';
+import React from 'react';
 
 const Words = () => {
   return (
-    <>
-      <div></div>
-      <div></div>
-      <NewWord />
-    </>
+    <React.Fragment>
+      <Word />
+    </React.Fragment>
   );
 };
 
