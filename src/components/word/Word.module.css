@@ -34,7 +34,7 @@ header {
 }
 
 .button {
-    width: calc(calc(calc(80vh - 114px - 54px - 10vh - 24px) * 1.33333333) * 0.5);
+    width: 40vh;
     margin: 10px auto;
     display: block;
     background-color: #FF8A47;

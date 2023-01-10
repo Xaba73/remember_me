@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Word.module.css';
+import { arrayShuffle } from './stuffFunctions';
+
 const DUMMY_WORD = [
   { russian: 'лошадь', english: 'horse' },
   { russian: 'машина', english: 'car' },
@@ -12,38 +14,26 @@ const DUMMY_WORD = [
   { russian: 'Довольно, вполне', english: 'quite' },
 ];
 
-function arrayShuffle(array) {
-  if (!Array.isArray(array)) {
-    throw new TypeError(`Expected an array, got ${typeof array}`);
-  }
-  array = [...array];
-
-  for (let index = array.length - 1; index > 0; index--) {
-    const newIndex = Math.floor(Math.random() * (index + 1));
-    [array[index], array[newIndex]] = [array[newIndex], array[index]];
-  }
-  console.log(array);
-  return array;
-}
-
 const Word = () => {
   const [wordArray, setWordArray] = useState(DUMMY_WORD);
-  const [showAnswer, setShowAnswer] = useState(false);
+  const [isAnswerVisible, setIsAnswerVisible] = useState(false);
 
-  const shuffleWordHandler = () => {
+  const nextWordHandler = () => {
     setWordArray(arrayShuffle(DUMMY_WORD));
-    setShowAnswer(!showAnswer);
+    setIsAnswerVisible(false);
   };
   const revealAnswerHandler = () => {
-    setShowAnswer(!showAnswer);
+    setIsAnswerVisible(true);
   };
 
-  let wordButton = (
-    <button className={styles.button} onClick={shuffleWordHandler}>
-      Next
-    </button>
-  );
-  if (showAnswer === false) {
+  let wordButton;
+  if (isAnswerVisible) {
+    wordButton = (
+      <button className={styles.button} onClick={nextWordHandler}>
+        Next
+      </button>
+    );
+  } else {
     wordButton = (
       <button className={styles.button} onClick={revealAnswerHandler}>
         Reveal answer
@@ -55,12 +45,11 @@ const Word = () => {
       <header></header>
       <div className={styles.wrapper}>
         <p className={styles.word_main}>{wordArray[0].russian}</p>
-        {showAnswer && (
+        {isAnswerVisible && (
           <p className={styles.word_main}>{wordArray[0].english}</p>
         )}
       </div>
-      {showAnswer && wordButton}
-      {!showAnswer && wordButton}
+      {wordButton}
     </div>
   );
 };
