@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './Word.module.css';
-import { arrayShuffle } from './stuffFunctions';
+import { arrayShuffle } from './helpers';
 
 const DUMMY_WORD = [
   { russian: 'лошадь', english: 'horse' },
@@ -15,13 +15,23 @@ const DUMMY_WORD = [
 ];
 
 const Word = () => {
-  const [wordArray, setWordArray] = useState(DUMMY_WORD);
+  let firstShuffeledArray = arrayShuffle(DUMMY_WORD);
+
+  const [wordArray, setWordArray] = useState(firstShuffeledArray);
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
+  const [deckCounter, setDeckCounter] = useState(0);
 
   const nextWordHandler = () => {
-    setWordArray(arrayShuffle(DUMMY_WORD));
+    console.log(wordArray);
+    if (deckCounter === wordArray.length - 1) {
+      setWordArray(arrayShuffle(DUMMY_WORD));
+      setDeckCounter(0);
+    } else {
+      setDeckCounter((prevCount) => prevCount + 1);
+    }
     setIsAnswerVisible(false);
   };
+
   const revealAnswerHandler = () => {
     setIsAnswerVisible(true);
   };
@@ -40,13 +50,14 @@ const Word = () => {
       </button>
     );
   }
+
   return (
     <div className={styles.container}>
       <header></header>
       <div className={styles.wrapper}>
-        <p className={styles.word_main}>{wordArray[0].russian}</p>
+        <p className={styles.word_main}>{wordArray[deckCounter].russian}</p>
         {isAnswerVisible && (
-          <p className={styles.word_main}>{wordArray[0].english}</p>
+          <p className={styles.word_main}>{wordArray[deckCounter].english}</p>
         )}
       </div>
       {wordButton}

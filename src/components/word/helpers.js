@@ -8,7 +8,6 @@ function arrayShuffle(array) {
     const newIndex = Math.floor(Math.random() * (index + 1));
     [array[index], array[newIndex]] = [array[newIndex], array[index]];
   }
-  console.log(array);
   return array;
 }
 

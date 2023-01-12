@@ -1,4 +1,4 @@
-import Word from '../components/word/Word';
+import Word from '../components/Word/Word';
 import React from 'react';
 
 const Words = () => {
