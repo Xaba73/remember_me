@@ -1,21 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import styles from './Word.module.css';
 import { arrayShuffle } from './helpers';
-
-const DUMMY_WORD = [
-  { russian: 'лошадь', english: 'horse' },
-  { russian: 'машина', english: 'car' },
-  { russian: 'красный', english: 'red' },
-  { russian: 'медведь', english: 'bear' },
-  { russian: 'Явно', english: 'explicitly' },
-  { russian: 'Оказывается', english: 'it turns out' },
-  { russian: 'уязвимый', english: 'vulnerable' },
-  { russian: 'Хотя, однако', english: 'though' },
-  { russian: 'Довольно, вполне', english: 'quite' },
-];
+import { useSelector } from 'react-redux';
 
 const Word = () => {
-  let firstShuffeledArray = arrayShuffle(DUMMY_WORD);
+  const words = useSelector((state) => state.add.basicWords);
+  let firstShuffeledArray = arrayShuffle(words);
 
   const [wordArray, setWordArray] = useState(firstShuffeledArray);
   const [isAnswerVisible, setIsAnswerVisible] = useState(false);
@@ -24,7 +14,7 @@ const Word = () => {
   const nextWordHandler = () => {
     console.log(wordArray);
     if (deckCounter === wordArray.length - 1) {
-      setWordArray(arrayShuffle(DUMMY_WORD));
+      setWordArray(arrayShuffle(words));
       setDeckCounter(0);
     } else {
       setDeckCounter((prevCount) => prevCount + 1);

@@ -1,15 +1,16 @@
 h1 {
+  margin: 0;
   color: azure;
   font-family: 'Libre Baskerville', serif;
   font-size: 4.5em;
   padding-left: 1.5em;
-  padding-top: 0.3em;
-
+  padding-top: 0.9em;
+  padding-bottom: 0.3em;
 }
 
 .link {
   background-color: rgba(255, 255, 255, 1);
-  color:#0c547f;
+  color: #0c547f;
   padding: 0.3em 0.7em 0.3em 0.7em;
   text-decoration: none;
   font-family: 'Playfair Display', serif;
@@ -24,4 +25,9 @@ h1 {
 .link:hover {
   font-size: 2.2em;
   background-color: rgba(255, 255, 255, 0.8);
+}
+
+.decorationWrapper {
+  background-image: url('../../layout/main-background5.jpg');
+  min-height: 100vh;
 }
