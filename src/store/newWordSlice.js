@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 
 const DUMMY_WORD = [
   { russian: 'лошадь', english: 'horse' },
@@ -20,7 +20,9 @@ export const newWordSlice = createSlice({
   name: 'add',
   initialState,
   reducers: {
-    newWord: (state) => state,
+    newWord: (state) => {
+      return console.log(current(state.basicWords));
+    },
   },
 });
 

@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    
+}
+
+.original {
+    width: 25%;
+    border: 1px solid;
+    border-right: 0;
+}
+.translation {
+    width: 25%;
+    border: 1px solid;
+}
