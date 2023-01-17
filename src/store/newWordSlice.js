@@ -20,8 +20,9 @@ export const newWordSlice = createSlice({
   name: 'add',
   initialState,
   reducers: {
-    newWord: (state) => {
-      return console.log(current(state.basicWords));
+    newWord: (state, newCard) => {
+      state.basicWords = [...state.basicWords, newCard.payload];
+      console.log(current(state));
     },
   },
 });

@@ -13,7 +13,7 @@ const AddCardWordItemForm = () => {
       english: originalInputValue,
     };
     console.log(newCard);
-    dispatch(newWord());
+    dispatch(newWord(newCard));
     setInputOriginalValue('');
     setInputTranslationValue('');
   };
