@@ -10,7 +10,7 @@ const CardWordItems = () => {
         <CardItem
           russian={word.russian}
           english={word.english}
-          key={word.russian}
+          key={word.key}
         />
       ))}
     </>
