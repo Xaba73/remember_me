@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
-import newWordReducer from './newWordSlice';
+import deckControlReducer from './deckControlSlice';
 
 export const storeWords = configureStore({
   reducer: {
-    add: newWordReducer,
+    deckControl: deckControlReducer,
   },
 });

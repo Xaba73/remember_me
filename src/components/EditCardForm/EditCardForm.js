@@ -1,6 +1,10 @@
 import { useFormik } from 'formik';
+import { useDispatch } from 'react-redux';
+import { editWord } from '../../store/deckControlSlice';
 
 const EditCardForm = (props) => {
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       russian: props.russian,
@@ -8,6 +12,9 @@ const EditCardForm = (props) => {
       id: props.id,
     },
     onSubmit: (values) => {
+      console.log(props.id);
+      console.log(values.russian);
+      dispatch(editWord(props.id, values.russian));
       console.log(values);
     },
   });

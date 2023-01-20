@@ -1,4 +1,4 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, current } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 
 const DUMMY_WORD = [
@@ -17,16 +17,24 @@ const initialState = {
   basicWords: DUMMY_WORD,
 };
 
-export const newWordSlice = createSlice({
-  name: 'add',
+export const deckControlSlice = createSlice({
+  name: 'deckControl',
   initialState,
   reducers: {
     newWord: (state, newCard) => {
+      //Redux requires that we write all state updates immutably, by making copies of data and updating the copies.
+      //However, Redux Toolkit's createSlice and createReducer APIs use Immer inside to allow us to write "mutating" update logic that becomes correct immutable updates.
       state.basicWords = [...state.basicWords, newCard.payload];
+    },
+    editWord: (state, cardId, newCardValie) => {
+      let cardIndex = state.basicWords.findIndex((item) => item.key === cardId);
+      console.log(cardIndex);
+      state.basicWords[cardIndex].russian = newCardValie;
+      console.log(current(state));
     },
   },
 });
 
-export const { newWord } = newWordSlice.actions;
+export const { newWord, editWord } = deckControlSlice.actions;
 
-export default newWordSlice.reducer;
+export default deckControlSlice.reducer;

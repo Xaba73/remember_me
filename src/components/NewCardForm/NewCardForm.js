@@ -1,7 +1,7 @@
 import React from 'react';
 import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
-import { newWord } from '../../store/newWordSlice';
+import { newWord } from '../../store/deckControlSlice';
 import { v4 as uuidv4 } from 'uuid';
 
 const NewCardForm = () => {
