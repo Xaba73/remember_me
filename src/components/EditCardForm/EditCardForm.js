@@ -12,10 +12,13 @@ const EditCardForm = (props) => {
       id: props.id,
     },
     onSubmit: (values) => {
-      console.log(props.id);
-      console.log(values.russian);
-      dispatch(editWord(props.id, values.russian));
-      console.log(values);
+      const payload = {
+        id: props.id,
+        russian: values.russian,
+        english: values.english,
+      };
+      dispatch(editWord(payload));
+      props.isShowModal(false);
     },
   });
   return (

@@ -4,7 +4,7 @@ import { arrayShuffle } from './helpers';
 import { useSelector } from 'react-redux';
 
 const Word = () => {
-  const words = useSelector((state) => state.add.basicWords);
+  const words = useSelector((state) => state.deckControl.basicWords);
   let firstShuffeledArray = arrayShuffle(words);
 
   const [wordArray, setWordArray] = useState(firstShuffeledArray);

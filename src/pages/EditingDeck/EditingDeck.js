@@ -15,7 +15,6 @@ const EditingDeck = () => {
 
   const getDateForEditionModal = (cardValue) => {
     setDateForEditionCard(cardValue);
-    console.log(dateForEditionCard);
   };
 
   return (
@@ -30,7 +29,7 @@ const EditingDeck = () => {
         active={isAddingNewCardActive}
         setActive={setIsAddingNewCardActive}
       >
-        <NewCardForm />
+        <NewCardForm isShowModal={setIsAddingNewCardActive} />
       </Modal>
       <Modal active={isEditingCardActive} setActive={setIsEditingCardActive}>
         {isEditingCardActive && (
@@ -38,6 +37,7 @@ const EditingDeck = () => {
             russian={dateForEditionCard.russian}
             english={dateForEditionCard.english}
             id={dateForEditionCard.id}
+            isShowModal={setIsEditingCardActive}
           />
         )}
       </Modal>

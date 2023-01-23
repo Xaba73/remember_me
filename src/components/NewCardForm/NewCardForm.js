@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { newWord } from '../../store/deckControlSlice';
 import { v4 as uuidv4 } from 'uuid';
 
-const NewCardForm = () => {
+const NewCardForm = (props) => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -18,6 +18,7 @@ const NewCardForm = () => {
         key: uuidv4(),
       };
       dispatch(newWord(newCard));
+      props.isShowModal(false);
       formik.resetForm();
     },
   });

@@ -3,7 +3,6 @@ import CardItem from './CardItem';
 
 const CardWordItems = (props) => {
   const words = useSelector((state) => state.deckControl.basicWords);
-  console.log(words);
   return (
     <div>
       {words.map((word) => (

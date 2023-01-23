@@ -1,4 +1,4 @@
-import { createSlice, current } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 import { v4 as uuidv4 } from 'uuid';
 
 const DUMMY_WORD = [
@@ -21,20 +21,31 @@ export const deckControlSlice = createSlice({
   name: 'deckControl',
   initialState,
   reducers: {
+    //Redux requires that we write all state updates immutably, by making copies of data and updating the copies.
+    //However, Redux Toolkit's createSlice and createReducer APIs use Immer inside to allow us to write "mutating" update logic that becomes correct immutable updates.
+
     newWord: (state, newCard) => {
-      //Redux requires that we write all state updates immutably, by making copies of data and updating the copies.
-      //However, Redux Toolkit's createSlice and createReducer APIs use Immer inside to allow us to write "mutating" update logic that becomes correct immutable updates.
       state.basicWords = [...state.basicWords, newCard.payload];
     },
-    editWord: (state, cardId, newCardValie) => {
-      let cardIndex = state.basicWords.findIndex((item) => item.key === cardId);
+
+    editWord: (state, action) => {
+      let cardIndex = state.basicWords.findIndex(
+        (item) => item.key === action.payload.id
+      );
+      state.basicWords[cardIndex].russian = action.payload.russian;
+      state.basicWords[cardIndex].english = action.payload.english;
+    },
+
+    deleteCard: (state, action) => {
+      let cardIndex = state.basicWords.findIndex(
+        (item) => item.key === action.payload.id
+      );
       console.log(cardIndex);
-      state.basicWords[cardIndex].russian = newCardValie;
-      console.log(current(state));
+      state.basicWords.splice(cardIndex, 1);
     },
   },
 });
 
-export const { newWord, editWord } = deckControlSlice.actions;
+export const { newWord, editWord, deleteCard } = deckControlSlice.actions;
 
 export default deckControlSlice.reducer;
