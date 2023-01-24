@@ -3,6 +3,7 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { newWord } from '../../store/deckControlSlice';
 import { v4 as uuidv4 } from 'uuid';
+import InputForForm from '../InputForForm/InputForForm';
 
 const NewCardForm = (props) => {
   const dispatch = useDispatch();
@@ -25,21 +26,19 @@ const NewCardForm = (props) => {
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <label htmlFor='russian'>Здесь напишите новое слово</label>
-      <input
-        id='russian'
+      <InputForForm
         name='russian'
         value={formik.values.russian}
         onChange={formik.handleChange}
         placeholder='Кошка'
+        labelDescription='Здесь напишите новое слово'
       />
-      <label htmlFor='english'>А здесь его перевод</label>
-      <input
-        id='english'
+      <InputForForm
         name='english'
         value={formik.values.english}
         onChange={formik.handleChange}
         placeholder='Cat'
+        labelDescription='А здесь его перевод'
       />
       <button type='submit'>Добавить </button>
     </form>
