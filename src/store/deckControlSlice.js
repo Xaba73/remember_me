@@ -13,7 +13,7 @@ const DUMMY_WORD = [
 ];
 
 const initialState = {
-  basicWords: DUMMY_WORD,
+  basicWords: [],
 };
 
 export const deckControlSlice = createSlice({
@@ -43,14 +43,14 @@ export const deckControlSlice = createSlice({
       state.basicWords.splice(cardIndex, 1);
     },
 
-    startFetching: (state, action) => {
-      console.log(current(state));
+    addStartCardsFromServer: (state, action) => {
       action.payload.map((item) => state.basicWords.push(item));
+      console.log(current(state));
     },
   },
 });
 
-export const { newWord, editWord, deleteCard, startFetching } =
+export const { newWord, editWord, deleteCard, addStartCardsFromServer } =
   deckControlSlice.actions;
 
 export default deckControlSlice.reducer;

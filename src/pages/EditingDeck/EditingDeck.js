@@ -43,7 +43,7 @@ const EditingDeck = () => {
           message={notification.message}
         />
       )}
-
+      <Link to='/'>Start</Link>
       <Link to='/words'>Карточки</Link>
       <CardWordItems
         onIsEditingCardActive={setIsEditingCardActive}

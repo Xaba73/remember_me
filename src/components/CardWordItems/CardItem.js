@@ -16,7 +16,6 @@ const CardItem = (props) => {
   const onDeleteHandler = (event) => {
     event.preventDefault();
     dispatch(deleteCard(card));
-    console.log('Ура!');
   };
   return (
     <form className={styles.container}>

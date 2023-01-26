@@ -1,5 +1,5 @@
 import { showNotification } from './uiSlice';
-import { startFetching } from './deckControlSlice';
+import { addStartCardsFromServer } from './deckControlSlice';
 
 export const fetchDeckData = () => {
   return async (dispatch) => {
@@ -16,8 +16,8 @@ export const fetchDeckData = () => {
     };
 
     try {
-      const initialDeckData = await fetchData();
-      dispatch(startFetching(initialDeckData));
+      let initialDeckData = await fetchData();
+      dispatch(addStartCardsFromServer(initialDeckData));
     } catch (error) {
       dispatch(
         showNotification({

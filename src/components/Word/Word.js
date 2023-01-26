@@ -45,9 +45,9 @@ const Word = () => {
     <div className={styles.container}>
       <header></header>
       <div className={styles.wrapper}>
-        <p className={styles.word_main}>{wordArray[deckCounter].russian}</p>
+        <p className={styles.word_main}>{wordArray[deckCounter]?.russian}</p>
         {isAnswerVisible && (
-          <p className={styles.word_main}>{wordArray[deckCounter].english}</p>
+          <p className={styles.word_main}>{wordArray[deckCounter]?.english}</p>
         )}
       </div>
       {wordButton}
