@@ -17,6 +17,7 @@ h1 {
   font-size: 2em;
   margin-left: 6%;
   border-radius: 10px;
+  transition: 0.4s;
 }
 
 .link span {

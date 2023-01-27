@@ -14,6 +14,7 @@ const EditingDeck = () => {
   const [isAddingNewCardActive, setIsAddingNewCardActive] = useState(false);
   const [isEditingCardActive, setIsEditingCardActive] = useState(false);
   const [dateForEditionCard, setDateForEditionCard] = useState('');
+  const [isShowNotification, setIsShowNotification] = useState(false);
   const words = useSelector((state) => state.deckControl.basicWords);
   const dispatch = useDispatch();
   const notification = useSelector((state) => state.ui.notification);
@@ -27,16 +28,23 @@ const EditingDeck = () => {
   };
 
   useEffect(() => {
+    setTimeout(() => {
+      setIsShowNotification(false);
+    }, 3000);
+  }, [notification]);
+
+  useEffect(() => {
     if (isInitial) {
       isInitial = false;
       return;
     }
     dispatch(sendDeckData(words));
+    setIsShowNotification(true);
   }, [words, dispatch]);
 
   return (
     <Fragment>
-      {notification && (
+      {isShowNotification && notification && (
         <Notification
           status={notification.status}
           title={notification.title}

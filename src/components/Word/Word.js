@@ -12,7 +12,6 @@ const Word = () => {
   const [deckCounter, setDeckCounter] = useState(0);
 
   const nextWordHandler = () => {
-    console.log(wordArray);
     if (deckCounter === wordArray.length - 1) {
       setWordArray(arrayShuffle(words));
       setDeckCounter(0);
