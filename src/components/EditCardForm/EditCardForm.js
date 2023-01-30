@@ -2,6 +2,7 @@ import { useFormik } from 'formik';
 import { useDispatch } from 'react-redux';
 import { editWord } from '../../store/deckControlSlice';
 import InputForForm from '../InputForForm/InputForForm';
+import styles from './EditCardForm.module.css';
 
 const EditCardForm = (props) => {
   const dispatch = useDispatch();
@@ -23,7 +24,7 @@ const EditCardForm = (props) => {
     },
   });
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} className={styles.decoration__wrapper}>
       <InputForForm
         name='russian'
         value={formik.values.russian}

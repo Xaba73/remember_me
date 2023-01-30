@@ -1,0 +1,5 @@
+.decoration__wrapper {
+  min-height: 100vh;
+  background-color: #74ebd5;
+  background-image: linear-gradient(328deg, #74ebd5 0%, #9face6 100%);
+}

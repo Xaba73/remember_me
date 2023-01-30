@@ -8,6 +8,7 @@ import EditCardForm from '../../components/EditCardForm/EditCardForm';
 import { useDispatch, useSelector } from 'react-redux';
 import Notification from '../../components/UI/Notification';
 import { sendDeckData } from '../../store/deck-actions';
+import styles from './EditingDeck.module.css';
 
 let isInitial = true;
 const EditingDeck = () => {
@@ -43,7 +44,7 @@ const EditingDeck = () => {
   }, [words, dispatch]);
 
   return (
-    <Fragment>
+    <div className={styles.decoration__wrapper}>
       {isShowNotification && notification && (
         <Notification
           status={notification.status}
@@ -74,7 +75,7 @@ const EditingDeck = () => {
           />
         )}
       </Modal>
-    </Fragment>
+    </div>
   );
 };
 

@@ -1,16 +1,16 @@
+import { TextField } from '@mui/material';
+import styles from './InputForForm.module.css';
 const InputForForm = (props) => {
   return (
-    <div>
-      <label htmlFor={props.name}>{props.labelDescription}</label>
-      <input
-        type='text'
-        id={props.name}
-        name={props.name}
-        value={props.value}
-        onChange={props.onChange}
-        placeholder={props.placeholder}
-      />
-    </div>
+    <TextField
+      id={props.name}
+      label={props.labelDescription}
+      value={props.value}
+      onChange={props.onChange}
+      placeholder={props.placeholder}
+      variant='outlined'
+      className={styles.textField}
+    />
   );
 };
 
