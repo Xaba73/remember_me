@@ -4,6 +4,7 @@ import styles from './Words.module.css';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
+import { buttonAddNewCardWordsPage } from '../../components/UI/muiCss';
 
 const Words = () => {
   const words = useSelector((state) => state.deckControl.basicWords);
@@ -16,8 +17,8 @@ const Words = () => {
             Похоже, вы еще не добавили ни одной карточки в колоду
           </p>
           <Link to='/editing' className={styles.error__link}>
-            <Button variant='outlined' className={styles.error__linkButton}>
-              Добавить карточку
+            <Button variant='outlined' sx={buttonAddNewCardWordsPage}>
+              Добавить
             </Button>
           </Link>
         </div>

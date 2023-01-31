@@ -3,3 +3,24 @@
   background-color: #74ebd5;
   background-image: linear-gradient(328deg, #74ebd5 0%, #9face6 100%);
 }
+
+.button__wrapper {
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  justify-content: center;
+}
+
+.button__add_new_card {
+  width: 56%;
+  background-color: transparent;
+  border: 2px dashed #7d7878;
+  padding: 5px;
+  color: #7d7878;
+  border-radius: 10px;
+  transition: 0.4s;
+}
+.button__add_new_card:hover {
+  border: 2px solid #000;
+  color: #000;
+}

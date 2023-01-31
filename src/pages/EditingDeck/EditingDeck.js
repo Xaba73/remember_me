@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState, useEffect, Fragment } from 'react';
+import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import NewCardForm from '../../components/NewCardForm/NewCardForm';
 import CardWordItems from '../../components/CardWordItems/CardWordItems';
@@ -58,7 +58,14 @@ const EditingDeck = () => {
         onIsEditingCardActive={setIsEditingCardActive}
         onGetDateForEditionModal={getDateForEditionModal}
       />
-      <button onClick={openNewCardModalHandler}> Add new card</button>
+      <div className={styles.button__wrapper}>
+        <button
+          className={styles.button__add_new_card}
+          onClick={openNewCardModalHandler}
+        >
+          Добавить
+        </button>
+      </div>
       <Modal
         active={isAddingNewCardActive}
         setActive={setIsAddingNewCardActive}
