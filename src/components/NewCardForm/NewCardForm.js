@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { newWord } from '../../store/deckControlSlice';
 import { v4 as uuidv4 } from 'uuid';
 import InputForForm from '../InputForForm/InputForForm';
+import { validationSchema } from '../Word/helpers';
 
 const NewCardForm = (props) => {
   const dispatch = useDispatch();
@@ -12,6 +13,7 @@ const NewCardForm = (props) => {
       russian: '',
       english: '',
     },
+    validationSchema: validationSchema,
     onSubmit: (values) => {
       let newCard = {
         russian: values.russian,
@@ -32,6 +34,8 @@ const NewCardForm = (props) => {
         onChange={formik.handleChange}
         placeholder='Кошка'
         labelDescription='Здесь напишите новое слово'
+        error={formik.touched.russian && Boolean(formik.errors.russian)}
+        helperText={formik.touched.russian && formik.errors.russian}
       />
       <InputForForm
         name='english'
@@ -39,6 +43,8 @@ const NewCardForm = (props) => {
         onChange={formik.handleChange}
         placeholder='Cat'
         labelDescription='А здесь его перевод'
+        error={formik.touched.english && Boolean(formik.errors.english)}
+        helperText={formik.touched.english && formik.errors.english}
       />
       <button type='submit'>Добавить </button>
     </form>

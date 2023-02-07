@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { editWord } from '../../store/deckControlSlice';
 import InputForForm from '../InputForForm/InputForForm';
 import styles from './EditCardForm.module.css';
-
+import { validationSchema } from '../Word/helpers';
 const EditCardForm = (props) => {
   const dispatch = useDispatch();
 
@@ -13,6 +13,7 @@ const EditCardForm = (props) => {
       english: props.english,
       id: props.id,
     },
+    validationSchema: validationSchema,
     onSubmit: (values) => {
       const payload = {
         id: props.id,
@@ -30,12 +31,16 @@ const EditCardForm = (props) => {
         value={formik.values.russian}
         onChange={formik.handleChange}
         labelDescription='Исправь свою карточку'
+        error={formik.touched.russian && Boolean(formik.errors.russian)}
+        helperText={formik.touched.russian && formik.errors.russian}
       />
       <InputForForm
         name='english'
         value={formik.values.english}
         onChange={formik.handleChange}
         labelDescription='И её перевод'
+        error={formik.touched.english && Boolean(formik.errors.english)}
+        helperText={formik.touched.english && formik.errors.english}
       />
       <button type='submit'>Исправить </button>
     </form>

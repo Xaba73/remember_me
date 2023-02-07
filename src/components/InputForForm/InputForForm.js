@@ -10,6 +10,8 @@ const InputForForm = (props) => {
       placeholder={props.placeholder}
       variant='outlined'
       className={styles.textField}
+      error={props.error}
+      helperText={props.helperText}
     />
   );
 };

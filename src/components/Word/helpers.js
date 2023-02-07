@@ -1,3 +1,5 @@
+import * as yup from 'yup';
+
 function arrayShuffle(array) {
   if (!Array.isArray(array)) {
     throw new TypeError(`Expected an array, got ${typeof array}`);
@@ -10,5 +12,19 @@ function arrayShuffle(array) {
   }
   return array;
 }
+const cyrillicPattern = /^[А-ЯЁа-яё '-]+$/;
+const englishPattern = /^[A-Za-z\s]*$/;
+const validationSchema = yup.object({
+  russian: yup
+    .string('Напшите слово')
+    .min(2, 'Слово должно быть минимум из двух символов')
+    .required('Заполните карточку')
+    .matches(cyrillicPattern, 'Заполните карточку кириллицей'),
+  english: yup
+    .string('Напшите слово')
+    .min(2, 'Слово должно быть минимум из двух символов')
+    .required('Заполните карточку')
+    .matches(englishPattern, 'Заполните карточку на английском языке'),
+});
 
-export { arrayShuffle };
+export { arrayShuffle, validationSchema };

@@ -9,6 +9,8 @@ import { useDispatch, useSelector } from 'react-redux';
 import Notification from '../../components/UI/Notification';
 import { sendDeckData } from '../../store/deck-actions';
 import styles from './EditingDeck.module.css';
+import { IconButton } from '@mui/material';
+import AddBoxIcon from '@mui/icons-material/AddBox';
 
 let isInitial = true;
 const EditingDeck = () => {
@@ -59,12 +61,13 @@ const EditingDeck = () => {
         onGetDateForEditionModal={getDateForEditionModal}
       />
       <div className={styles.button__wrapper}>
-        <button
-          className={styles.button__add_new_card}
+        <IconButton
+          color='primary'
+          aria-label='delete'
           onClick={openNewCardModalHandler}
         >
-          Добавить
-        </button>
+          <AddBoxIcon />
+        </IconButton>
       </div>
       <Modal
         active={isAddingNewCardActive}

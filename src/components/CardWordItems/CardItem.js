@@ -1,6 +1,9 @@
 import { useDispatch } from 'react-redux';
 import styles from './CardItem.module.css';
 import { deleteCard } from '../../store/deckControlSlice';
+import { IconButton } from '@mui/material';
+import DeleteIcon from '@mui/icons-material/Delete';
+import ModeEditIcon from '@mui/icons-material/ModeEdit';
 const CardItem = (props) => {
   const dispatch = useDispatch();
   let card = {
@@ -21,8 +24,12 @@ const CardItem = (props) => {
     <form className={styles.container}>
       <p className={styles.original}>{props.russian}</p>
       <p className={styles.translation}>{props.english}</p>
-      <button onClick={onEditHandler}>Edit</button>
-      <button onClick={onDeleteHandler}> Delete </button>
+      <IconButton color='primary' aria-label='delete' onClick={onEditHandler}>
+        <ModeEditIcon />
+      </IconButton>
+      <IconButton color='primary' aria-label='delete' onClick={onDeleteHandler}>
+        <DeleteIcon />
+      </IconButton>
     </form>
   );
 };
