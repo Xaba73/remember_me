@@ -1,8 +1,22 @@
 .decorationWrapper {
-  background-image: url('../../layout/main-background4.jpg');
+  background-color: #f7f8fb;
   min-height: 100vh;
   background-size: cover;
   display: flex;
+}
+.content_wrapper {
+  display: flex;
+}
+.head_wrapper {
+  display: flex;
+}
+.main_page_link {
+  margin: 0;
+  color: rgba(0, 0, 0, 0.46);
+  font-family: 'Libre Baskerville', serif;
+  padding: 10px;
+  font-size: 2.5em;
+  text-decoration: none;
 }
 
 .error__wrapper {

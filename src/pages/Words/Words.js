@@ -27,9 +27,15 @@ const Words = () => {
   } else {
     pageContent = (
       <div className={styles.decorationWrapper}>
-        <Link to='/editing'>Редактировать</Link>
-        <Link to='/'> Home</Link>
-        <Word />
+        <div className={styles.head_wrapper}>
+          <Link to='/' className={styles.main_page_link}>
+            Remember ME
+          </Link>
+          <Link to='/editing'>Редактировать</Link>
+        </div>
+        <div className={styles.content_wrapper}>
+          <Word />
+        </div>
       </div>
     );
   }

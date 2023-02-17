@@ -39,14 +39,18 @@ const Word = () => {
       </button>
     );
   }
-
+  let wordClasses = styles.word_main;
+  if (isAnswerVisible) {
+    wordClasses = `${styles.word_main} ${styles.word_show_answer}`;
+  }
   return (
     <div className={styles.container}>
-      <header></header>
       <div className={styles.wrapper}>
-        <p className={styles.word_main}>{wordArray[deckCounter]?.russian}</p>
+        <p className={wordClasses}>{wordArray[deckCounter]?.russian}</p>
         {isAnswerVisible && (
-          <p className={styles.word_main}>{wordArray[deckCounter]?.english}</p>
+          <p className={`${styles.word_main} ${styles.word_answer} `}>
+            {wordArray[deckCounter]?.english}
+          </p>
         )}
       </div>
       {wordButton}
