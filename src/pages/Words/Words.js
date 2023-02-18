@@ -31,7 +31,9 @@ const Words = () => {
           <Link to='/' className={styles.main_page_link}>
             Remember ME
           </Link>
-          <Link to='/editing'>Редактировать</Link>
+          <Link className={styles.head_menu_link} to='/editing'>
+            Редактировать колоду
+          </Link>
         </div>
         <div className={styles.content_wrapper}>
           <Word />

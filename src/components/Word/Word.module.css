@@ -1,9 +1,14 @@
 .container {
-  display: block;
-  width: 50vw;
-  padding-top: 20vh;
+  display: flex;
+  margin-top: 12vh;
   margin-left: auto;
   margin-right: auto;
+  cursor: pointer;
+  justify-content: center;
+}
+.word_wrapper {
+  display: flex;
+  width: 70vh;
 }
 
 .wrapper {
@@ -19,7 +24,6 @@
 
 .word_main {
   display: flex;
-  flex: 1;
   flex-direction: column;
   justify-content: center;
   font-size: 4em;
@@ -47,20 +51,7 @@
     transform: translateY(0%);
   }
 }
-
-.button {
-  width: 40vh;
-  margin: 10px auto;
-  display: block;
-  background-color: #ff8a47;
-  border-color: transparent;
-  border-radius: 30px;
-  padding: 8px 0 8px 0;
-  color: #fff;
-  cursor: pointer;
-  font-weight: 300;
-  letter-spacing: 1px;
-  text-align: center;
-  text-transform: uppercase;
-  font-size: 0.8em;
+.button__wrapper {
+  display: flex;
+  align-self: center;
 }

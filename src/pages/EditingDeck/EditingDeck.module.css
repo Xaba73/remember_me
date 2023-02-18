@@ -1,7 +1,10 @@
 .decoration__wrapper {
   min-height: 100vh;
-  background-color: #74ebd5;
-  background-image: linear-gradient(328deg, #74ebd5 0%, #9face6 100%);
+  background: radial-gradient(
+    343px at 46.3% 47.5%,
+    rgb(242, 242, 242) 0%,
+    rgb(241, 241, 241) 72.9%
+  );
 }
 
 .button__wrapper {

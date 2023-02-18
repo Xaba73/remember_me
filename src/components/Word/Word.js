@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import styles from './Word.module.css';
 import { arrayShuffle } from './helpers';
 import { useSelector } from 'react-redux';
+import { IconButton } from '@mui/material';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import MouseOverPopover from '../UI/MouseOverPopover';
 
 const Word = () => {
   const words = useSelector((state) => state.deckControl.basicWords);
@@ -25,35 +28,34 @@ const Word = () => {
     setIsAnswerVisible(true);
   };
 
-  let wordButton;
-  if (isAnswerVisible) {
-    wordButton = (
-      <button className={styles.button} onClick={nextWordHandler}>
-        Next
-      </button>
-    );
-  } else {
-    wordButton = (
-      <button className={styles.button} onClick={revealAnswerHandler}>
-        Reveal answer
-      </button>
-    );
-  }
   let wordClasses = styles.word_main;
   if (isAnswerVisible) {
     wordClasses = `${styles.word_main} ${styles.word_show_answer}`;
   }
   return (
     <div className={styles.container}>
-      <div className={styles.wrapper}>
-        <p className={wordClasses}>{wordArray[deckCounter]?.russian}</p>
-        {isAnswerVisible && (
-          <p className={`${styles.word_main} ${styles.word_answer} `}>
-            {wordArray[deckCounter]?.english}
-          </p>
-        )}
+      <MouseOverPopover>
+        <div className={styles.word_wrapper}>
+          <div className={styles.wrapper} onClick={revealAnswerHandler}>
+            <p className={wordClasses}>{wordArray[deckCounter]?.russian}</p>
+            {isAnswerVisible && (
+              <p className={`${styles.word_main} ${styles.word_answer} `}>
+                {wordArray[deckCounter]?.english}
+              </p>
+            )}
+          </div>
+        </div>
+      </MouseOverPopover>
+      <div className={styles.button__wrapper}>
+        <IconButton
+          color='black'
+          arial-label='next'
+          size='large'
+          onClick={nextWordHandler}
+        >
+          <ArrowForwardIosIcon />
+        </IconButton>
       </div>
-      {wordButton}
     </div>
   );
 };
