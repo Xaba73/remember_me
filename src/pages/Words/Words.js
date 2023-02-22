@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Button from '@mui/material/Button';
 import { buttonAddNewCardWordsPage } from '../../components/UI/muiCss';
+import Header from '../../components/Header/Header';
 
 const Words = () => {
   const words = useSelector((state) => state.deckControl.basicWords);
@@ -27,14 +28,7 @@ const Words = () => {
   } else {
     pageContent = (
       <div className={styles.decorationWrapper}>
-        <div className={styles.head_wrapper}>
-          <Link to='/' className={styles.main_page_link}>
-            Remember ME
-          </Link>
-          <Link className={styles.head_menu_link} to='/editing'>
-            Редактировать колоду
-          </Link>
-        </div>
+        <Header link='/editing' linkDescription='Редактировать колоду' />
         <div className={styles.content_wrapper}>
           <Word />
         </div>

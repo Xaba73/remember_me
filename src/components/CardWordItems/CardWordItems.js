@@ -1,10 +1,11 @@
 import { useSelector } from 'react-redux';
 import CardItem from './CardItem';
+import styles from './CardWordItems.module.css';
 
 const CardWordItems = (props) => {
   const words = useSelector((state) => state.deckControl.basicWords);
   return (
-    <div>
+    <div className={styles.grid_container}>
       {words.map((word) => (
         <CardItem
           russian={word.russian}

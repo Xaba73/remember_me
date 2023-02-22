@@ -1,16 +1,16 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import NewCardForm from '../../components/NewCardForm/NewCardForm';
 import CardWordItems from '../../components/CardWordItems/CardWordItems';
 import Modal from '../../components/Modal/Modal';
 import EditCardForm from '../../components/EditCardForm/EditCardForm';
-import { useDispatch, useSelector } from 'react-redux';
 import Notification from '../../components/UI/Notification';
-import { sendDeckData } from '../../store/deck-actions';
-import styles from './EditingDeck.module.css';
 import { IconButton } from '@mui/material';
 import AddBoxIcon from '@mui/icons-material/AddBox';
+import { sendDeckData } from '../../store/deck-actions';
+import styles from './EditingDeck.module.css';
+import Header from '../../components/Header/Header';
 
 let isInitial = true;
 const EditingDeck = () => {
@@ -54,16 +54,15 @@ const EditingDeck = () => {
           message={notification.message}
         />
       )}
-      <Link to='/'>Start</Link>
-      <Link to='/words'>Карточки</Link>
+      <Header link='/words' linkDescription='Карточки' />
       <CardWordItems
         onIsEditingCardActive={setIsEditingCardActive}
         onGetDateForEditionModal={getDateForEditionModal}
       />
       <div className={styles.button__wrapper}>
         <IconButton
-          color='primary'
-          aria-label='delete'
+          color='black'
+          aria-label='add new card'
           onClick={openNewCardModalHandler}
         >
           <AddBoxIcon />

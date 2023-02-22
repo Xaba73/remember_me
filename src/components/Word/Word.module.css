@@ -6,13 +6,10 @@
   cursor: pointer;
   justify-content: center;
 }
-.word_wrapper {
-  display: flex;
-  width: 70vh;
-}
 
 .wrapper {
   display: flex;
+  width: 70vh;
   flex: 1;
   flex-direction: column;
   justify-content: center;
@@ -28,11 +25,16 @@
   justify-content: center;
   font-size: 4em;
   align-items: center;
-  padding-top: 1em;
-  padding-bottom: 1em;
+  margin: 0;
 }
+.word_answer_tooltip {
+  margin: 20px auto 0 auto;
+  color: #9f9c9cdf;
+}
+
 .word_show_answer {
   font-size: 3em;
+  padding-bottom: 2em;
 }
 .word_answer {
   border-top: solid #eceff4;
@@ -54,4 +56,8 @@
 .button__wrapper {
   display: flex;
   align-self: center;
+}
+
+.hidde {
+  opacity: 0;
 }

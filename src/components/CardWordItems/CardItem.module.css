@@ -1,21 +1,36 @@
 .container {
-    display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    padding: 5px;
-    
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  padding: 5px;
+}
+.card_word_wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  background-color: rgba(92, 121, 177, 0.1);
+  border-radius: 8px;
+  padding: 1em;
+  flex-grow: 3;
 }
 
-.original {
-    margin: 0;
-    width: 25%;
-    border: 1px solid;
-    border-right: 0;
-    padding: 5px;
+.word_russian {
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 1.2em;
+  color: rgba(0, 32, 51, 0.8);
+  white-space: nowrap;
 }
-.translation {
-    margin: 0;
-    width: 25%;
-    border: 1px solid;
-    padding: 5px;
+.word_english {
+  display: inline-block;
+  line-height: 1.2em;
+  vertical-align: middle;
+  opacity: 0.9;
+  color: rgba(0, 32, 51, 0.6);
+}
+.card_word_button_wrapper {
+  display: flex;
+  flex-direction: column;
 }

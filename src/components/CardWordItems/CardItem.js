@@ -1,5 +1,5 @@
-import { useDispatch } from 'react-redux';
 import styles from './CardItem.module.css';
+import { useDispatch } from 'react-redux';
 import { deleteCard } from '../../store/deckControlSlice';
 import { IconButton } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -22,14 +22,22 @@ const CardItem = (props) => {
   };
   return (
     <form className={styles.container}>
-      <p className={styles.original}>{props.russian}</p>
-      <p className={styles.translation}>{props.english}</p>
-      <IconButton color='primary' aria-label='delete' onClick={onEditHandler}>
-        <ModeEditIcon />
-      </IconButton>
-      <IconButton color='primary' aria-label='delete' onClick={onDeleteHandler}>
-        <DeleteIcon />
-      </IconButton>
+      <div className={styles.card_word_wrapper}>
+        <div className={styles.word_russian}>{props.russian}</div>
+        <div className={styles.word_english}>{props.english}</div>
+      </div>
+      <div className={styles.card_word_button_wrapper}>
+        <IconButton
+          color='black'
+          aria-label='edit card'
+          onClick={onEditHandler}
+        >
+          <ModeEditIcon />
+        </IconButton>
+        <IconButton color='black' aria-label='delete' onClick={onDeleteHandler}>
+          <DeleteIcon />
+        </IconButton>
+      </div>
     </form>
   );
 };
