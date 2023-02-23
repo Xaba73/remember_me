@@ -1,16 +1,16 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { sendDeckData } from '../../store/deck-actions';
 import NewCardForm from '../../components/NewCardForm/NewCardForm';
 import CardWordItems from '../../components/CardWordItems/CardWordItems';
 import Modal from '../../components/Modal/Modal';
 import EditCardForm from '../../components/EditCardForm/EditCardForm';
-import Notification from '../../components/UI/Notification';
-import { IconButton } from '@mui/material';
-import AddBoxIcon from '@mui/icons-material/AddBox';
-import { sendDeckData } from '../../store/deck-actions';
-import styles from './EditingDeck.module.css';
 import Header from '../../components/Header/Header';
+import Notification from '../../components/UI/Notification';
+import AddBoxIcon from '@mui/icons-material/AddBox';
+import { IconButton } from '@mui/material';
+import styles from './EditingDeck.module.css';
 
 let isInitial = true;
 const EditingDeck = () => {
@@ -54,20 +54,24 @@ const EditingDeck = () => {
           message={notification.message}
         />
       )}
-      <Header link='/words' linkDescription='Карточки' />
+      <Header
+        link='/words'
+        linkDescription='Карточки'
+        showAddNewCardButton={true}
+        openModalAddNewCard={openNewCardModalHandler}
+      />
       <CardWordItems
         onIsEditingCardActive={setIsEditingCardActive}
         onGetDateForEditionModal={getDateForEditionModal}
+        openModalAddNewCard={openNewCardModalHandler}
       />
-      <div className={styles.button__wrapper}>
-        <IconButton
-          color='black'
-          aria-label='add new card'
-          onClick={openNewCardModalHandler}
-        >
-          <AddBoxIcon />
-        </IconButton>
-      </div>
+      <IconButton
+        color='black'
+        aria-label='add new card'
+        onClick={openNewCardModalHandler}
+      >
+        <AddBoxIcon />
+      </IconButton>
       <Modal
         active={isAddingNewCardActive}
         setActive={setIsAddingNewCardActive}

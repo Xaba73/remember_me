@@ -1,23 +1,23 @@
 .notification {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #1a8ed1;
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 10%;
+  align-items: center;
+  color: white;
+}
 
-    background-color: #1a8ed1;
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 10%;
-    align-items: center;
-    color: white;
-  }
-  
-  .notification h2,
-  .notification p {
-    font-size: 1em;
-    margin: 0;
-  }
-  
-  .error {
-    background-color: #690000;
-  }
-  
-  .success {
-    background-color: #1ad1b9;
-  }
+.notification h2,
+.notification p {
+  font-size: 1em;
+  margin: 0;
+}
+
+.error {
+  background-color: #690000;
+}
+
+.success {
+  background-color: #1ad1b9;
+}

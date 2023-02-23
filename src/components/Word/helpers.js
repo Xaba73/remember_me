@@ -13,7 +13,7 @@ function arrayShuffle(array) {
   return array;
 }
 const cyrillicPattern = /^[А-ЯЁа-яё '-]+$/;
-const englishPattern = /^[A-Za-z\s]*$/;
+const englishPattern = /^[A-Za-z `'\s]*$/;
 const validationSchema = yup.object({
   russian: yup
     .string('Напшите слово')
