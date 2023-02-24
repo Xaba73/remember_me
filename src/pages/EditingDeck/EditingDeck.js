@@ -8,8 +8,6 @@ import Modal from '../../components/Modal/Modal';
 import EditCardForm from '../../components/EditCardForm/EditCardForm';
 import Header from '../../components/Header/Header';
 import Notification from '../../components/UI/Notification';
-import AddBoxIcon from '@mui/icons-material/AddBox';
-import { IconButton } from '@mui/material';
 import styles from './EditingDeck.module.css';
 
 let isInitial = true;
@@ -24,6 +22,11 @@ const EditingDeck = () => {
 
   const openNewCardModalHandler = () => {
     setIsAddingNewCardActive(true);
+  };
+
+  const closeModalHandler = () => {
+    setIsEditingCardActive(false);
+    setIsAddingNewCardActive(false);
   };
 
   const getDateForEditionModal = (cardValue) => {
@@ -65,18 +68,14 @@ const EditingDeck = () => {
         onGetDateForEditionModal={getDateForEditionModal}
         openModalAddNewCard={openNewCardModalHandler}
       />
-      <IconButton
-        color='black'
-        aria-label='add new card'
-        onClick={openNewCardModalHandler}
-      >
-        <AddBoxIcon />
-      </IconButton>
       <Modal
         active={isAddingNewCardActive}
         setActive={setIsAddingNewCardActive}
       >
-        <NewCardForm isShowModal={setIsAddingNewCardActive} />
+        <NewCardForm
+          isShowModal={setIsAddingNewCardActive}
+          closeModal={closeModalHandler}
+        />
       </Modal>
       <Modal active={isEditingCardActive} setActive={setIsEditingCardActive}>
         {isEditingCardActive && (
@@ -85,6 +84,7 @@ const EditingDeck = () => {
             english={dateForEditionCard.english}
             id={dateForEditionCard.id}
             isShowModal={setIsEditingCardActive}
+            closeModal={closeModalHandler}
           />
         )}
       </Modal>

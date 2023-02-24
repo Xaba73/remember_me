@@ -5,6 +5,9 @@ import { newWord } from '../../store/deckControlSlice';
 import { v4 as uuidv4 } from 'uuid';
 import InputForForm from '../InputForForm/InputForForm';
 import { validationSchema } from '../Word/helpers';
+import styles from './NewCardForm.module.css';
+import Divider from '@mui/material/Divider';
+import ButtonsForForms from '../ButtonsForForms/ButtonsForForms';
 
 const NewCardForm = (props) => {
   const dispatch = useDispatch();
@@ -27,13 +30,15 @@ const NewCardForm = (props) => {
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} className={styles.form__wrapper}>
+      <h2 className={styles.form_title}>Добавить карточку</h2>
+      <Divider variant='fullWidth' sx={{ marginBottom: '0.5em' }} />
       <InputForForm
         name='russian'
         value={formik.values.russian}
         onChange={formik.handleChange}
         placeholder='Кошка'
-        labelDescription='Здесь напишите новое слово'
+        labelDescription='Здесь напишите новое слово на русском'
         error={formik.touched.russian && Boolean(formik.errors.russian)}
         helperText={formik.touched.russian && formik.errors.russian}
       />
@@ -42,11 +47,14 @@ const NewCardForm = (props) => {
         value={formik.values.english}
         onChange={formik.handleChange}
         placeholder='Cat'
-        labelDescription='А здесь его перевод'
+        labelDescription='А здесь его перевод на английском'
         error={formik.touched.english && Boolean(formik.errors.english)}
         helperText={formik.touched.english && formik.errors.english}
       />
-      <button type='submit'>Добавить </button>
+      <ButtonsForForms
+        submitButtonText='Добавить'
+        closeModal={props.closeModal}
+      />
     </form>
   );
 };

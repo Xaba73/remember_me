@@ -1,4 +1,3 @@
-.textField {
-  margin-left: 100px;
-  margin-right: 100px;
+.form__input__wrapper {
+  display: flex;
 }
