@@ -37,7 +37,8 @@ const Header = (props) => {
       }
     >
       <Link to='/' className={styles.main_page_link}>
-        Remember ME
+        Remember
+        <span className={styles.main_page_link_logo_decoration}>.me</span>
       </Link>
       <Link className={styles.head_menu_link} to={props.link}>
         {props.linkDescription}

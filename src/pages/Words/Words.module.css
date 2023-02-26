@@ -39,7 +39,8 @@
   margin: 28vh auto auto auto;
   width: 30%;
   height: 25%;
-  border-radius: 10px;
+  border-radius: 16px;
+  box-shadow: 0 4px 50px -12px rgb(17 12 46 / 16%);
 }
 
 .error__message {

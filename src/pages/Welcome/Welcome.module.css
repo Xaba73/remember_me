@@ -1,34 +1,36 @@
-.main_title {
-  margin: 0;
-  color: azure;
-  font-family: 'Libre Baskerville', serif;
-  font-size: 4.5em;
-  padding-left: 1.5em;
-  padding-top: 0.9em;
-  padding-bottom: 0.3em;
+.decorationWrapper {
+  min-height: 100vh;
+  background-image: url('/src/layout/main-background2.jpg');
+  background-position: center right;
+  background-repeat: no-repeat;
 }
 
+.main_title {
+  margin: 0;
+  color: #252340;
+  font-family: 'Libre Baskerville', serif;
+  font-size: 6.5em;
+  padding: 20vh 0 0 20vh;
+}
+.main_title__decoration {
+  color: #4a3aff;
+}
+.content {
+  text-decoration: none;
+  color: #252340;
+  font-family: 'Playfair Display', serif;
+  font-size: 3em;
+  padding-top: 16px;
+  padding-left: 20vh;
+}
 .link {
-  background-color: rgba(255, 255, 255, 1);
+  display: block;
   color: #0c547f;
-  padding: 0.3em 0.7em 0.3em 0.7em;
   text-decoration: none;
   font-family: 'Playfair Display', serif;
   font-size: 2em;
-  margin-left: 6%;
+  margin-left: 20vh;
+  margin-top: 2vh;
   border-radius: 10px;
   transition: 0.4s;
-}
-
-.link span {
-  padding-left: 25px;
-}
-.link:hover {
-  font-size: 2.2em;
-  background-color: rgba(255, 255, 255, 0.8);
-}
-
-.decorationWrapper {
-  background-image: url('../../layout/main-background5.jpg');
-  min-height: 100vh;
 }
