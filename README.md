@@ -1,4 +1,4 @@
-# Getting Started with Create React App
+# Remember.me
 
 Remember.me мой пэт проект, который я сделал для отработки типичных задач Фронтенд разработчика.
 
