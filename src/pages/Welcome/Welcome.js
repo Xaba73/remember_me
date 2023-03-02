@@ -5,11 +5,11 @@ import StartIcon from '@mui/icons-material/Start';
 
 const Welcome = () => {
   const buttonStyle = {
-    fontSize: 28,
-    color: '#252340',
+    fontSize: 48,
     textTransform: 'none',
-    border: '1px solid #252340',
     paddingRight: '30px',
+    fontFamily: `'Roboto Condensed', sans-serif;`,
+    backgroundColor: `#6733ab`,
   };
   return (
     <div className={styles.decorationWrapper}>
@@ -17,11 +17,10 @@ const Welcome = () => {
         Remember<span className={styles.main_title__decoration}>.me</span>
       </h1>
       <article className={styles.content}>
-        Это web приложение для создания <br />и запоминания флэш карточек со
-        словами
+        Создавай и запоминай свои <br></br>флэш карточки!
       </article>
       <Link to='/words' className={styles.link}>
-        <Button variant='outlined' endIcon={<StartIcon />} sx={buttonStyle}>
+        <Button variant='contained' endIcon={<StartIcon />} sx={buttonStyle}>
           Let's start
         </Button>
       </Link>

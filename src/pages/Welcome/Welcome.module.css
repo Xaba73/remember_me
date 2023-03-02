@@ -18,10 +18,11 @@
 .content {
   text-decoration: none;
   color: #252340;
-  font-family: 'Playfair Display', serif;
+  font-family: 'Roboto Condensed', sans-serif;
   font-size: 3em;
   padding-top: 16px;
   padding-left: 20vh;
+  line-height: 1.5em;
 }
 .link {
   display: block;
@@ -30,7 +31,7 @@
   font-family: 'Playfair Display', serif;
   font-size: 2em;
   margin-left: 20vh;
-  margin-top: 2vh;
+  margin-top: 3vh;
   border-radius: 10px;
   transition: 0.4s;
 }
